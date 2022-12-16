@@ -86,3 +86,50 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+console.log (`Financial Analysis \n___________________`);
+
+// The total number of months included in the dataset.
+
+console.log(`Total months: ${finances.length}`);
+
+// The net total amount of Profit/Losses over the entire period.
+
+console.log(finances[1]);
+
+// var count = 0;
+// for (var i=0; i<finances.length; i++) {
+//     console.log(count += finances[i][1]);
+// }
+
+// attempt 2
+// const sum = array.reduce((acc, o) => acc + parseInt(o.value), 0)
+
+// attempt 3
+// var initialValue = 0;
+// var sum = finances.reduce(
+//     accumulator, currentValue) => accumulator + currentValue. initialValue
+//     );
+
+// console.log(sum);
+
+// attempt 4
+var sum = 0;
+for (var i=0; i<finances.length; i++) {
+    sum += finances[i][1];
+}
+console.log(`Total: $${sum}`)
+
+// The average of the changes in Profit/Losses over the entire period.
+
+var change=[];
+for (var j=0; j<finances.length-1; j++) {
+    change.push(finances[j+1][1] - finances[j][1]);
+}
+console.log(`Average change: $${Math.round(sum/finances.length)}`)
+
+// The greatest increase in profits (date and amount) over the entire period.
+
+
+
+// The greatest decrease in losses (date and amount) over the entire period.
