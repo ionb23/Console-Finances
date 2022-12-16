@@ -114,6 +114,7 @@ console.log(finances[1]);
 // console.log(sum);
 
 // attempt 4
+// calculating sum of all profit/losses in finances array
 var sum = 0;
 for (var i=0; i<finances.length; i++) {
     sum += finances[i][1];
@@ -122,13 +123,58 @@ console.log(`Total: $${sum}`)
 
 // The average of the changes in Profit/Losses over the entire period.
 
-var change=[];
+var change = [];
+var sumChange = 0;
+// calculating change between months and pushing to change array
 for (var j=0; j<finances.length-1; j++) {
     change.push(finances[j+1][1] - finances[j][1]);
 }
-console.log(`Average change: $${Math.round(sum/finances.length)}`)
+// calculating sum of all changes
+for (var k=0; k<change.length; k++) {
+    sumChange += change[k];
+}
+// logging the average change as the sum of all changes divided by count of all changes
+console.log(`Average change: $${Math.round(sumChange/change.length)}`);
 
 // The greatest increase in profits (date and amount) over the entire period.
+
+//attempt 1
+// var maximum = change[0];
+// var minimum = change[0];
+
+// for (var n=0; n < change.length; n++) {
+//     if (maximum < change[n]) {
+//         maximum = change[n];
+//     } else {minimum = change[n]}
+// };
+
+// console.log(maximum);
+// console.log(minimum);
+
+// attempt 2 - works but we need the number of the element in the change array
+// var maximum = Math.max.apply(null, change);
+// var minimum = Math.min.apply(null, change);
+
+// console.log(maximum);
+// console.log(minimum);
+
+//attempt 3
+var changeMaxIndex = 0;
+var changeMinIndex = 0;
+var maximum = change[0];
+var minimum = change[0];
+
+for (var n=0, m=0; n < change.length; n++) {
+    if (maximum < change[n]) {
+        maximum = change[n];
+    } else {minimum = change[n]}
+};
+
+console.log(maximum);
+console.log(minimum);
+
+
+console.log(`Greatest increase in Profits: ${Math.max(change)}`);
 
 
 
