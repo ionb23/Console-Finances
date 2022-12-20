@@ -123,6 +123,7 @@ var changeMinIndex = 0;
 var maximum = change[0];
 var minimum = change[0];
 
+// finding the maximum change in profit and recording its index number
 for (var n=0; n < change.length; n++) {
     if (maximum < change[n]) {
         maximum = change[n];
@@ -130,6 +131,7 @@ for (var n=0; n < change.length; n++) {
     }
 };
 
+// finding the minimum change in profit and recording its index number
 for (var m=0; m < change.length; m++) {
     if (minimum > change[m]) {
         minimum = change[m];
